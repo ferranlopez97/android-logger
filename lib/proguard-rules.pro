@@ -14,8 +14,35 @@
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+
 
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
-#-renamesourcefileattribute SourceFile
+
+
+-printmapping out.map
+-renamesourcefileattribute SourceFile
+-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,EnclosingMethod
+
+-keep class flp.dev.lib.Log {
+    public static <methods>;
+    private static <methods>;
+    private static <fields>;
+    private <methods>;
+    private <fields>;
+    private <init>();
+}
+
+#-keepclassmembers class * extends java.lang.Enum {
+#    public static **[] values();
+#    public static ** valueOf(java.lang.String);
+#}
+#
+#-keepclassmembernames class * {
+#    java.lang.Class class$(java.lang.String);
+#    java.lang.Class class$(java.lang.String, boolean);
+#}
+
+
+
+
